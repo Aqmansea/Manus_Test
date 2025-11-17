@@ -9,7 +9,8 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
 export default defineConfig({
-  base: './',
+  // Use repository name so GitHub Pages can serve assets from the correct base path
+  base: "/Manus_Zane/",
   plugins,
   resolve: {
     alias: {
