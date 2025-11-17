@@ -9,7 +9,7 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
 export default defineConfig({
-  base: '/Manus_Test/',
+  base: '/',
   plugins,
   resolve: {
     alias: {
@@ -23,6 +23,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    assetsInlineLimit: 0,
   },
   server: {
     port: 3000,
