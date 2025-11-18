@@ -16,6 +16,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ROLLUP_USE_NATIVE: "false"
+      npm_config_legacy_peer_deps: "true"
+      npm_config_optional: "false"
     steps:
       - uses: actions/checkout@v4
 
@@ -25,12 +29,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
 
       - name: Build project
         run: npm run build
-        env:
-          ROLLUP_USE_NATIVE: "false"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
